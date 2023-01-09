@@ -23,13 +23,9 @@
     "@nestjs/common": "^9.0.0",
     "@nestjs/config": "^2.2.0",
     "@nestjs/core": "^9.0.0",
-<<<<<<< HEAD
-    "@nestjs/mapped-types": "*",
-=======
     "@nestjs/jwt": "^10.0.1",
     "@nestjs/mapped-types": "*",
     "@nestjs/passport": "^9.0.0",
->>>>>>> 5ab91d0 ([FEAT] : add auth)
     "@nestjs/platform-express": "^9.0.0",
     "@nestjs/swagger": "^6.1.4",
     "@nestjs/typeorm": "^9.0.1",
