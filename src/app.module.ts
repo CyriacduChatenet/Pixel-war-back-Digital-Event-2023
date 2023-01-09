@@ -6,11 +6,8 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { AuthModule } from './auth/auth.module';
-<<<<<<< HEAD
 import { RolesGuard } from './auth/guard/roles.guard';
-=======
 import { UserModule } from './user/user.module';
->>>>>>> 5ab91d0 ([FEAT] : add auth)
 
 @Module({
   imports: [
@@ -28,17 +25,14 @@ import { UserModule } from './user/user.module';
       synchronize: true,
     }),
     AuthModule,
-<<<<<<< HEAD
-=======
     UserModule,
->>>>>>> 5ab91d0 ([FEAT] : add auth)
   ],
   controllers: [AppController],
   providers: [
     AppService,
     {
       provide: APP_GUARD,
-      useClass: RolesGuard
+      useClass: RolesGuard,
     },
   ],
 })
