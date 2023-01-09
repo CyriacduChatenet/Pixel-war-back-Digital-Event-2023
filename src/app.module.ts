@@ -6,12 +6,16 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { AuthModule } from './auth/auth.module';
+<<<<<<< HEAD
 import { RolesGuard } from './auth/guard/roles.guard';
+=======
+import { UserModule } from './user/user.module';
+>>>>>>> 5ab91d0 ([FEAT] : add auth)
 
 @Module({
   imports: [
     ConfigModule.forRoot({
-      isGlobal: true
+      isGlobal: true,
     }),
     TypeOrmModule.forRoot({
       type: 'postgres',
@@ -24,6 +28,10 @@ import { RolesGuard } from './auth/guard/roles.guard';
       synchronize: true,
     }),
     AuthModule,
+<<<<<<< HEAD
+=======
+    UserModule,
+>>>>>>> 5ab91d0 ([FEAT] : add auth)
   ],
   controllers: [AppController],
   providers: [
