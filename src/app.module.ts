@@ -7,6 +7,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { AuthModule } from './auth/auth.module';
 import { RolesGuard } from './auth/guard/roles.guard';
+import { PixelModule } from './pixel/pixel.module';
 
 @Module({
   imports: [
@@ -24,6 +25,7 @@ import { RolesGuard } from './auth/guard/roles.guard';
       synchronize: true,
     }),
     AuthModule,
+    PixelModule,
   ],
   controllers: [AppController],
   providers: [
