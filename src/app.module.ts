@@ -8,11 +8,12 @@ import { AppService } from './app.service';
 import { AuthModule } from './auth/auth.module';
 import { RolesGuard } from './auth/guard/roles.guard';
 import { PixelModule } from './pixel/pixel.module';
+import { UserModule } from './user/user.module';
 
 @Module({
   imports: [
     ConfigModule.forRoot({
-      isGlobal: true
+      isGlobal: true,
     }),
     TypeOrmModule.forRoot({
       type: 'postgres',
@@ -26,13 +27,14 @@ import { PixelModule } from './pixel/pixel.module';
     }),
     AuthModule,
     PixelModule,
+    UserModule,
   ],
   controllers: [AppController],
   providers: [
     AppService,
     {
       provide: APP_GUARD,
-      useClass: RolesGuard
+      useClass: RolesGuard,
     },
   ],
 })
