@@ -1,7 +1,7 @@
-.PHONY up
+.PHONY: up
 up:
 	docker-compose up -d
 
-.PHONY down
+.PHONY: down
 down:
 	docker-compose down
