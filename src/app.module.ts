@@ -9,6 +9,7 @@ import { AuthModule } from './auth/auth.module';
 import { RolesGuard } from './auth/guard/roles.guard';
 import { PixelModule } from './pixel/pixel.module';
 import { UserModule } from './user/user.module';
+import { TeamModule } from './team/team.module';
 
 @Module({
   imports: [
@@ -28,6 +29,7 @@ import { UserModule } from './user/user.module';
     AuthModule,
     PixelModule,
     UserModule,
+    TeamModule,
   ],
   controllers: [AppController],
   providers: [
