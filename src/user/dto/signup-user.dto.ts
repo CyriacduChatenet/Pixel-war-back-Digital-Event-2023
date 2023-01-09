@@ -2,8 +2,8 @@ export class SignupUserInputDTO {
   username: string;
   email: string;
   password: string;
-  role: string;
+  role?: string;
   team: string;
-  totalScore: number;
-  isBan: boolean;
+  totalScore?: number;
+  isBan?: boolean;
 }

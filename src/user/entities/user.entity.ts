@@ -24,13 +24,13 @@ export class User {
   @Column()
   team: string; // many to one
 
-  @Column()
+  @Column({ default: 0 })
   totalScore: number;
 
-  @Column()
+  @Column({ default: [] })
   pixels: string; // one to many
 
-  @Column()
+  @Column({ default: false })
   isBan: boolean;
 
   @CreateDateColumn()
