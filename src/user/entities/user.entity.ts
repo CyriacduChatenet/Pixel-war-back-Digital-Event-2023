@@ -1,9 +1,11 @@
 import { Role } from 'src/auth/enums/roles.enum';
+import { Pixel } from 'src/pixel/entities/pixel.entity';
 import {
   Column,
   CreateDateColumn,
   DeleteDateColumn,
   Entity,
+  OneToMany,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
@@ -35,8 +37,8 @@ export class User {
   @Column({ default: 0 })
   totalScore: number;
 
-  @Column({ default: [] })
-  pixel: string; // one to many
+  @OneToMany(() => Pixel, (pixel) => pixel.user)
+  pixel: Pixel[]; // one to many
 
   @Column({ default: false })
   isBan: boolean;

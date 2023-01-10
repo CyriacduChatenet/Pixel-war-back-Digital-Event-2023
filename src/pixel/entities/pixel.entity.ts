@@ -13,7 +13,7 @@ export class Pixel {
     @Column()
     y: number
 
-    @ManyToOne(() => User, (user) => user.pixels)
+    @ManyToOne(() => User, (user) => user.pixel)
     user: User
 
     @Column()

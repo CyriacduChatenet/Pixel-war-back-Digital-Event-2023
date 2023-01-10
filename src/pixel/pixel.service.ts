@@ -24,9 +24,13 @@ export class PixelService {
     return await this.pixelRepository.findOneBy({ x, y })
   }
 
-  async findByUser(user: User) {
-    return await this.pixelRepository.findOneBy({ user })
-  }
+  // async findByUser(user: User) {
+  //   return await this.pixelRepository.find({
+  //     where: {
+  //       user: user
+  //     }
+  //   })
+  // }
 
   remove(id: number) {
     return `This action removes a #${id} pixel`;
