@@ -1,5 +1,4 @@
 import {
-  Body,
   Controller,
   Post,
   UploadedFile,
@@ -15,9 +14,8 @@ export class UploadFileController {
 
   @Post()
   @UseInterceptors(FileInterceptor('file'))
-  uploadSingleFileWithPost(@UploadedFile() file, @Body() body) {
+  async uploadSingleFileWithPost(@UploadedFile() file) {
     console.log(file);
-    console.log(body.firstName);
-    console.log(body.favoriteColor);
+    // return await this.uploadFileService.uploadAvatar(file);
   }
 }
