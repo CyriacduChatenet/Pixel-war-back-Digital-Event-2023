@@ -18,14 +18,14 @@ export class PixelController {
         return this.pixelService.create(datas)
     }
 
-    @Get(':x/:y')
-    findByCoordonates(@Param('x') x: number, @Param('y') y: number): Promise<Pixel> {
-        return this.pixelService.findByCoordonate(x, y)
+    @Get('coordinates/:x/:y')
+    findByCoordinates(@Param('x') x: number, @Param('y') y: number): Promise<Pixel[]> {
+        return this.pixelService.findByCoordinates(x, y)
     }
 
-    // @Get(':userId')
-    // findByUser(@Param('userId') userId: number): Promise<Pixel> {
-    //     return this.pixelService.findByUser(userId)
-    // }
+    @Get('user/:userId')
+    findByUser(@Param('userId') userId: string): Promise<Pixel[]> {
+        return this.pixelService.findByUser(userId)
+    }
 
 }

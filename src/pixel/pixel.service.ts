@@ -20,19 +20,26 @@ export class PixelService {
     return await this.pixelRepository.find()
   }
 
-  async findByCoordonate(x: number, y: number) {
-    return await this.pixelRepository.findOneBy({ x, y })
+  async findByCoordinates(x: number, y: number) {
+    return await this.pixelRepository.find({
+      where: {
+        x: x,
+        y: y
+      },
+      relations: ['user'],
+      order: {
+        createdAt: 'DESC'
+      }
+    })
   }
 
-  // async findByUser(user: User) {
-  //   return await this.pixelRepository.find({
-  //     where: {
-  //       user: user
-  //     }
-  //   })
-  // }
-
-  remove(id: number) {
-    return `This action removes a #${id} pixel`;
+  async findByUser(userId: string): Promise<Pixel[]>  {
+    return await this.pixelRepository.find({
+      where: {
+        user: {
+          id: userId
+        }
+      }
+    })
   }
 }
