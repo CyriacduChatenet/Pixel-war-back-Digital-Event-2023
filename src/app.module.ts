@@ -11,6 +11,7 @@ import { PixelModule } from './pixel/pixel.module';
 import { UserModule } from './user/user.module';
 import { TeamModule } from './team/team.module';
 import { ScreenshotModule } from './screenshot/screenshot.module';
+import { GameModule } from './game/game.module';
 
 @Module({
   imports: [
@@ -32,6 +33,7 @@ import { ScreenshotModule } from './screenshot/screenshot.module';
     UserModule,
     TeamModule,
     ScreenshotModule,
+    GameModule,
   ],
   controllers: [AppController],
   providers: [

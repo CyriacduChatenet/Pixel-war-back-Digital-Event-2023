@@ -1,4 +1,5 @@
-import { Column, CreateDateColumn, Entity, OneToOne, PrimaryGeneratedColumn } from "typeorm";
+import { Game } from "src/game/entities/game.entity";
+import { Column, CreateDateColumn, Entity, JoinColumn, OneToOne, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity({name: 'screenshot'})
 export class Screenshot {
@@ -9,8 +10,9 @@ export class Screenshot {
     @Column()
     url: string
 
-    @Column() // Enlever la valeur par défaut
-    game: string // Ajouter une relation OneToOne
+    @OneToOne(() => Game, (game) => game.screenshot)
+    @JoinColumn()
+    game: Game
 
     @CreateDateColumn()
     createdAt: Date

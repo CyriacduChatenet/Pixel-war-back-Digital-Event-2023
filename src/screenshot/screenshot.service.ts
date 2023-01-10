@@ -17,7 +17,7 @@ export class ScreenshotService {
 
   findAll() {
     return this.screenshotRepository.find({
-      // relations: ['game'] Ajouter la relation
+      relations: ['game']
     })
   }
 
@@ -25,14 +25,13 @@ export class ScreenshotService {
     return this.screenshotRepository.findOneBy({ id })
   }
 
-  // Ajouter cet ligne quand l'entité game sera créer
-  // findOneByGameId(gameId: string) {
-  //   return this.screenshotRepository.findOne({
-  //     where: {
-  //       game: {
-  //         id: gameId
-  //       }
-  //     }
-  //   })
-  // }
+  findOneByGameId(gameId: string) {
+    return this.screenshotRepository.findOne({
+      where: {
+        game: {
+          id: gameId
+        }
+      }
+    })
+  }
 }
