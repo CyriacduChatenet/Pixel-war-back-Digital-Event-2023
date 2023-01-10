@@ -10,6 +10,7 @@ import { RolesGuard } from './auth/guards/roles.guard';
 import { PixelModule } from './pixel/pixel.module';
 import { UserModule } from './user/user.module';
 import { TeamModule } from './team/team.module';
+import { UploadFileModule } from './upload-file/upload-file.module';
 
 @Module({
   imports: [
@@ -30,6 +31,7 @@ import { TeamModule } from './team/team.module';
     PixelModule,
     UserModule,
     TeamModule,
+    UploadFileModule,
   ],
   controllers: [AppController],
   providers: [
