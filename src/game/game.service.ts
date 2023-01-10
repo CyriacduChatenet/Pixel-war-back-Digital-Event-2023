@@ -6,9 +6,8 @@ import { Game } from './entities/game.entity';
 
 @Injectable()
 export class GameService {
-
   constructor(
-    @InjectRepository(Game) private readonly gameRepository: Repository<Game>
+    @InjectRepository(Game) private readonly gameRepository: Repository<Game>,
   ) {}
 
   create(gameDto: GameDto) {
@@ -17,19 +16,19 @@ export class GameService {
 
   findAll() {
     return this.gameRepository.find({
-      relations: ['screenshot']
-    })
+      relations: ['screenshot'],
+    });
   }
 
   findOne(id: string) {
-    return this.gameRepository.findOneBy({ id })
+    return this.gameRepository.findOneBy({ id });
   }
 
   update(id: string, gameDto: GameDto) {
-    return this.gameRepository.update(id, gameDto)
+    return this.gameRepository.update(id, gameDto);
   }
 
   remove(id: string) {
-    return this.gameRepository.softDelete(id)
+    return this.gameRepository.softDelete(id);
   }
 }

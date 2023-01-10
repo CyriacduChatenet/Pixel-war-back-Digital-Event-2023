@@ -10,6 +10,7 @@ import { RolesGuard } from './auth/guards/roles.guard';
 import { PixelModule } from './pixel/pixel.module';
 import { UserModule } from './user/user.module';
 import { TeamModule } from './team/team.module';
+import { UploadFileModule } from './upload-file/upload-file.module';
 import { ScreenshotModule } from './screenshot/screenshot.module';
 import { GameModule } from './game/game.module';
 
@@ -32,6 +33,7 @@ import { GameModule } from './game/game.module';
     PixelModule,
     UserModule,
     TeamModule,
+    UploadFileModule,
     ScreenshotModule,
     GameModule,
   ],

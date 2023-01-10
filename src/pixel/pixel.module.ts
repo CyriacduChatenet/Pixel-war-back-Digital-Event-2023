@@ -7,11 +7,8 @@ import { PixelController } from './pixel.controller';
 import { UserModule } from 'src/user/user.module';
 
 @Module({
-  imports: [
-    TypeOrmModule.forFeature([Pixel]),
-    UserModule
-  ],
+  imports: [TypeOrmModule.forFeature([Pixel]), UserModule],
   providers: [PixelGateway, PixelService],
-  controllers: [PixelController]
+  controllers: [PixelController],
 })
 export class PixelModule {}

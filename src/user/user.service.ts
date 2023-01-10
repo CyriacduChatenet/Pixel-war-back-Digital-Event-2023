@@ -30,7 +30,7 @@ export class UserService {
 
   async updateScore(id: string) {
     const bonus: number = +process.env.BONUS;
-    const score: number = 1 * bonus
+    const score: number = 1 * bonus;
 
     const user = await this.userRepository.findOneBy({ id });
 
