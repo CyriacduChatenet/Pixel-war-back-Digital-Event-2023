@@ -10,9 +10,9 @@ export class AuthController {
   constructor(private authService: AuthService) {}
 
   @UseGuards(LocalAuthGuard)
-  @Post('login')
-  public async login(@Body() loginUserInputDTO: LoginUserInputDTO) {
-    return this.authService.login(loginUserInputDTO);
+  @Post('signin')
+  public async signin(@Body() signinUserInputDTO: LoginUserInputDTO) {
+    return this.authService.signin(signinUserInputDTO);
   }
 
   @Post('signup')

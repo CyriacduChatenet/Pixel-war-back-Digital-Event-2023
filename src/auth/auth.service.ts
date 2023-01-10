@@ -26,7 +26,7 @@ export class AuthService {
     }
   }
 
-  public async login(user: any) {
+  public async signin(user: any) {
     const findUser = await this.userService.findOneByUsername(user.username);
 
     if (!findUser) {
@@ -37,7 +37,6 @@ export class AuthService {
       username: findUser.username,
       password: findUser.password,
       roles: findUser.roles,
-      id: findUser.id,
     };
     return {
       access_token: this.jwtService.sign(payload),
@@ -49,6 +48,8 @@ export class AuthService {
       signupUserInputDTO.username,
     );
 
+    console.log(user);
+
     if (user) {
       throw new HttpException(
         'User is already exist',
@@ -58,9 +59,18 @@ export class AuthService {
 
     const password = await bcrypt.hash(signupUserInputDTO.password, 10);
 
-    return this.userService.create({
+    this.userService.create({
       ...signupUserInputDTO,
       password,
     });
+
+    const payload = {
+      username: signupUserInputDTO.username,
+      password: signupUserInputDTO.password,
+      roles: 'user',
+    };
+    return {
+      access_token: this.jwtService.sign(payload),
+    };
   }
 }
