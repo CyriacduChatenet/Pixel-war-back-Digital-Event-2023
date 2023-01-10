@@ -6,7 +6,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { AuthModule } from './auth/auth.module';
-import { RolesGuard } from './auth/guard/roles.guard';
+import { RolesGuard } from './auth/guards/roles.guard';
 import { PixelModule } from './pixel/pixel.module';
 import { UserModule } from './user/user.module';
 import { TeamModule } from './team/team.module';

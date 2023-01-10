@@ -1,3 +1,4 @@
+import { Role } from 'src/auth/enums/roles.enum';
 import {
   Column,
   CreateDateColumn,
@@ -21,16 +22,23 @@ export class User {
   @Column()
   password: string;
 
+  @Column({
+    type: 'enum',
+    enum: Role,
+    default: Role.User,
+  })
+  roles: Role[];
+
   @Column()
   team: string; // many to one
 
-  @Column()
+  @Column({ default: 0 })
   totalScore: number;
 
-  @Column()
-  pixels: string; // one to many
+  @Column({ default: [] })
+  pixel: string; // one to many
 
-  @Column()
+  @Column({ default: false })
   isBan: boolean;
 
   @CreateDateColumn()
