@@ -42,4 +42,15 @@ export class PixelService {
       }
     })
   }
+
+  async findLastTwentyUser(): Promise<Pixel[]> {
+    return await this.pixelRepository.find({
+      relations: ['user'],
+      order: {
+        createdAt: 'DESC'
+      },
+      select: ['id', 'createdAt', 'user'],
+      take: 20
+    })
+  }
 }
