@@ -1,0 +1,20 @@
+services:
+  postgres:
+    image: postgres
+    container_name: postgres
+    environment:
+      POSTGRES_USER: ${DB_USERNAME}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ${DB_DATABASE}
+    ports:
+      - 5432:5432
+    restart: always
+  adminer:
+    container_name: adminer
+    environment:
+      ADMINER_DESIGN: pepa-linha
+      ADMINER_DEFAULT_SERVER: postgres
+    image: adminer
+    ports:
+      - 8080:8080
+    restart: always
