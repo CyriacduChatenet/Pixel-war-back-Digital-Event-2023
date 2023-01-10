@@ -26,8 +26,6 @@ export class TeamController {
   }
 
   @Get()
-  @UseGuards(JwtAuthGuard)
-  @Roles(Role.Admin)
   findAll() {
     return this.teamService.findAll();
   }
