@@ -1,5 +1,6 @@
 import {
   Controller,
+  Get,
   Post,
   UploadedFile,
   UseInterceptors,
@@ -12,10 +13,15 @@ import { UploadFileService } from './upload-file.service';
 export class UploadFileController {
   constructor(private readonly uploadFileService: UploadFileService) {}
 
-  @Post()
+  @Post('avatar')
   @UseInterceptors(FileInterceptor('file'))
   async uploadSingleFileWithPost(@UploadedFile() file) {
     console.log(file);
-    // return await this.uploadFileService.uploadAvatar(file);
+    return await this.uploadFileService.uploadAvatar(file);
+  }
+
+  @Get('avatar')
+  async findAllAvatar() {
+    return await this.uploadFileService.findAllAvatar();
   }
 }

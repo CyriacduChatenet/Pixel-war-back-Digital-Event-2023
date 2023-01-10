@@ -12,4 +12,8 @@ export class UploadFileService {
   async uploadAvatar(file: Avatar) {
     await this.avatarRepository.save(file);
   }
+
+  async findAllAvatar() {
+    return this.avatarRepository.find();
+  }
 }

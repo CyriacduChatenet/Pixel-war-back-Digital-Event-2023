@@ -3,9 +3,9 @@ services:
     image: postgres
     container_name: postgres
     environment:
-      POSTGRES_USER: ${DB_USERNAME}
-      POSTGRES_PASSWORD: ${DB_PASSWORD}
-      POSTGRES_DB: ${DB_DATABASE}
+      POSTGRES_USER: ${POSTGRESQL_ADDON_USERNAME}
+      POSTGRES_PASSWORD: ${POSTGRESQL_ADDON_PASSWORD}
+      POSTGRES_DB: ${POSTGRESQL_ADDON_DB}
     ports:
       - 5432:5432
     restart: always

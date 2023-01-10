@@ -12,7 +12,13 @@ export class Avatar {
   id: string;
 
   @Column()
-  name: string;
+  originalname: string;
+
+  @Column()
+  mimetype: string;
+
+  @Column('bytea', { nullable: false })
+  buffer: Buffer;
 
   @CreateDateColumn()
   createdAt: Date;
