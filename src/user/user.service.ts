@@ -28,6 +28,17 @@ export class UserService {
     return this.userRepository.findOneBy({ username });
   }
 
+  async updateScore(id: string) {
+    const bonus: number = +process.env.BONUS;
+    const score: number = 1 * bonus
+
+    const user = await this.userRepository.findOneBy({ id });
+
+    user.totalScore += score;
+
+    return this.userRepository.save(user);
+  }
+
   update(id: string, signupUserDto: SignupUserInputDTO) {
     return this.userRepository.update(id, signupUserDto);
   }
