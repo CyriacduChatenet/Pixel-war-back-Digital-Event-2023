@@ -1,7 +1,10 @@
+import { User } from 'src/user/entities/user.entity';
 import {
   Column,
   CreateDateColumn,
   Entity,
+  JoinColumn,
+  OneToOne,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
@@ -19,6 +22,10 @@ export class Avatar {
 
   @Column('bytea', { nullable: false })
   buffer: Buffer;
+
+  @OneToOne(() => User, (user) => user.avatar)
+  @JoinColumn()
+  user: User;
 
   @CreateDateColumn()
   createdAt: Date;
