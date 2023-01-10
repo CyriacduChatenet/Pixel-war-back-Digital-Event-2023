@@ -27,10 +27,17 @@ export class AuthService {
   }
 
   public async login(user: any) {
+    const findUser = await this.userService.findOneByUsername(user.username);
+
+    if (!findUser) {
+      throw new HttpException(`User isn't exist`, HttpStatus.NOT_ACCEPTABLE);
+    }
+
     const payload = {
-      username: user.username,
-      password: user.password,
-      id: user.id,
+      username: findUser.username,
+      password: findUser.password,
+      roles: findUser.roles,
+      id: findUser.id,
     };
     return {
       access_token: this.jwtService.sign(payload),
