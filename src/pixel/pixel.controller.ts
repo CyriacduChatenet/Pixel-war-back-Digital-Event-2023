@@ -28,4 +28,8 @@ export class PixelController {
         return this.pixelService.findByUser(userId)
     }
 
+    @Get('last-twenty-user')
+    findLastTwentyUser(): Promise<Pixel[]> {
+        return this.pixelService.findLastTwentyUser()
+    }
 }
