@@ -10,6 +10,7 @@ import { RolesGuard } from './auth/guards/roles.guard';
 import { PixelModule } from './pixel/pixel.module';
 import { UserModule } from './user/user.module';
 import { TeamModule } from './team/team.module';
+import { ScreenshotModule } from './screenshot/screenshot.module';
 
 @Module({
   imports: [
@@ -30,6 +31,7 @@ import { TeamModule } from './team/team.module';
     PixelModule,
     UserModule,
     TeamModule,
+    ScreenshotModule,
   ],
   controllers: [AppController],
   providers: [
