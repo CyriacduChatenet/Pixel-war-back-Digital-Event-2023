@@ -10,12 +10,9 @@ import { RolesGuard } from './auth/guards/roles.guard';
 import { PixelModule } from './pixel/pixel.module';
 import { UserModule } from './user/user.module';
 import { TeamModule } from './team/team.module';
-<<<<<<< HEAD
 import { UploadFileModule } from './upload-file/upload-file.module';
-=======
 import { ScreenshotModule } from './screenshot/screenshot.module';
 import { GameModule } from './game/game.module';
->>>>>>> main
 
 @Module({
   imports: [
@@ -25,11 +22,7 @@ import { GameModule } from './game/game.module';
     TypeOrmModule.forRoot({
       type: 'postgres',
       host: process.env.POSTGRESQL_ADDON_HOST,
-<<<<<<< HEAD
-      port: 5432,
-=======
       port: parseInt(process.env.POSTGRESQL_ADDON_PORT),
->>>>>>> main
       username: process.env.POSTGRESQL_ADDON_USER,
       password: process.env.POSTGRESQL_ADDON_PASSWORD,
       database: process.env.POSTGRESQL_ADDON_DB,
@@ -40,12 +33,9 @@ import { GameModule } from './game/game.module';
     PixelModule,
     UserModule,
     TeamModule,
-<<<<<<< HEAD
     UploadFileModule,
-=======
     ScreenshotModule,
     GameModule,
->>>>>>> main
   ],
   controllers: [AppController],
   providers: [

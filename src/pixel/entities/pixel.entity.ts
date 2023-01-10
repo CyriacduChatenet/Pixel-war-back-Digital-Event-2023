@@ -1,28 +1,33 @@
-import { User } from 'src/user/entities/user.entity'
-import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, CreateDateColumn, DeleteDateColumn } from 'typeorm'
+import { User } from 'src/user/entities/user.entity';
+import {
+  Entity,
+  PrimaryGeneratedColumn,
+  Column,
+  ManyToOne,
+  CreateDateColumn,
+  DeleteDateColumn,
+} from 'typeorm';
 
-@Entity({name: 'pixel'})
+@Entity({ name: 'pixel' })
 export class Pixel {
+  @PrimaryGeneratedColumn('uuid')
+  id: string;
 
-    @PrimaryGeneratedColumn('uuid')
-    id: string
+  @Column()
+  x: number;
 
-    @Column()
-    x: number
+  @Column()
+  y: number;
 
-    @Column()
-    y: number
+  @ManyToOne(() => User, (user) => user.pixel)
+  user: User;
 
-    @ManyToOne(() => User, (user) => user.pixel)
-    user: User
+  @Column()
+  color: string;
 
-    @Column()
-    color: string
+  @CreateDateColumn()
+  createdAt: Date;
 
-    @CreateDateColumn()
-    createdAt: Date
-
-    @DeleteDateColumn()
-    deletedAt: Date
-
+  @DeleteDateColumn()
+  deletedAt: Date;
 }

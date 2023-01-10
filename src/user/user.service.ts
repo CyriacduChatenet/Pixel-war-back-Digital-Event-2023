@@ -28,11 +28,9 @@ export class UserService {
     return this.userRepository.findOneBy({ username });
   }
 
-<<<<<<< HEAD
-=======
   async updateScore(id: string) {
     const bonus: number = +process.env.BONUS;
-    const score: number = 1 * bonus
+    const score: number = 1 * bonus;
 
     const user = await this.userRepository.findOneBy({ id });
 
@@ -41,7 +39,6 @@ export class UserService {
     return this.userRepository.save(user);
   }
 
->>>>>>> main
   update(id: string, signupUserDto: SignupUserInputDTO) {
     return this.userRepository.update(id, signupUserDto);
   }

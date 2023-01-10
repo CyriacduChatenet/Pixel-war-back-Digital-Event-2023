@@ -3,7 +3,6 @@ import {
   Get,
   Post,
   Body,
-  Patch,
   Param,
   Delete,
   Put,
@@ -40,14 +39,11 @@ export class UserController {
     return this.userService.update(id, signupUserDto);
   }
 
-<<<<<<< HEAD
-=======
   @Put('score/:id')
   updateScore(id: string) {
     return this.userService.updateScore(id);
   }
 
->>>>>>> main
   @Delete(':id')
   remove(@Param('id') id: string) {
     return this.userService.remove(id);
