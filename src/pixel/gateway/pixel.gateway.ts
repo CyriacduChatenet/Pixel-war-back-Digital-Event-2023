@@ -26,15 +26,14 @@ export class PixelGateway {
     try{
       const pixel = await this.pixelService.create(payload);
       const updateUserScore = await this.userService.updateScore(pixel.user.id);
-      console.log("updateUserScore => ", updateUserScore);
-           
       const pixels = await this.pixelService.findAll();
       const lastUsers = await this.pixelService.findLastTwentyUser();
+
       const payloadResponse = {
         pixels: pixels,
         lastUsers: lastUsers
       }
-      // console.log("payloadResponse => ", payloadResponse);
+
       await this.server.emit('responsePixel', payloadResponse);
     }catch(error){
       console.log("error => ", error.message);

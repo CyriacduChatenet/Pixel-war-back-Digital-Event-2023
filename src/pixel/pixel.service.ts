@@ -11,15 +11,15 @@ export class PixelService {
     @InjectRepository(Pixel) private pixelRepository: Repository<Pixel>
   ) {}
 
-  create(createPixelDto: PixelDto) {
+  create(createPixelDto: PixelDto): Promise<Pixel> {
     return this.pixelRepository.save(createPixelDto)
   }
 
-  async findAll() {
+  async findAll(): Promise<Pixel[]> {
     return await this.pixelRepository.find()
   }
 
-  async findByCoordinates(x: number, y: number) {
+  async findByCoordinates(x: number, y: number): Promise<Pixel[]> {
     return await this.pixelRepository.find({
       where: {
         x: x,
