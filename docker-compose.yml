@@ -3,7 +3,11 @@ services:
     image: postgres
     container_name: postgres
     environment:
+<<<<<<< HEAD
       POSTGRES_USER: ${POSTGRESQL_ADDON_USERNAME}
+=======
+      POSTGRES_USER: ${POSTGRESQL_ADDON_USER}
+>>>>>>> main
       POSTGRES_PASSWORD: ${POSTGRESQL_ADDON_PASSWORD}
       POSTGRES_DB: ${POSTGRESQL_ADDON_DB}
     ports:

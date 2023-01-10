@@ -1,6 +1,11 @@
+<<<<<<< HEAD
 import { Body, Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { User } from 'src/user/entities/user.entity';
+=======
+import { Injectable } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
+>>>>>>> main
 import { Repository } from 'typeorm';
 import { PixelDto } from './dto/pixel.dto';
 import { Pixel } from './entities/pixel.entity';
@@ -42,4 +47,19 @@ export class PixelService {
       }
     })
   }
+<<<<<<< HEAD
 }
+=======
+
+  async findLastTwentyUser(): Promise<Pixel[]> {
+    return await this.pixelRepository.find({
+      relations: ['user'],
+      order: {
+        createdAt: 'DESC'
+      },
+      select: ['id', 'createdAt', 'user'],
+      take: 20
+    })
+  }
+}
+>>>>>>> main

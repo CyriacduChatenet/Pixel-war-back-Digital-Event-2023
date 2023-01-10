@@ -6,7 +6,11 @@ import { PixelService } from './pixel.service';
 @Controller('pixel')
 export class PixelController {
 
+<<<<<<< HEAD
     constructor(private pixelService: PixelService) {}
+=======
+    constructor(private readonly pixelService: PixelService) {}
+>>>>>>> main
 
     @Get()
     findAll(): Promise<Pixel[]> {
@@ -28,4 +32,11 @@ export class PixelController {
         return this.pixelService.findByUser(userId)
     }
 
+<<<<<<< HEAD
+=======
+    @Get('last-twenty-user')
+    findLastTwentyUser(): Promise<Pixel[]> {
+        return this.pixelService.findLastTwentyUser()
+    }
+>>>>>>> main
 }
