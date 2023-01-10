@@ -6,7 +6,7 @@ import { PixelService } from './pixel.service';
 @Controller('pixel')
 export class PixelController {
 
-    constructor(private pixelService: PixelService) {}
+    constructor(private readonly pixelService: PixelService) {}
 
     @Get()
     findAll(): Promise<Pixel[]> {
