@@ -6,15 +6,11 @@ import {
   Patch,
   Param,
   Delete,
-  UseGuards,
 } from '@nestjs/common';
 
 import { TeamService } from './team.service';
 import { CreateTeamDto } from './dto/create-team.dto';
 import { UpdateTeamDto } from './dto/update-team.dto';
-import { Roles } from 'src/auth/decorators/roles.decorator';
-import { Role } from 'src/auth/enums/roles.enum';
-import { JwtAuthGuard } from 'src/auth/guards/jwt-auth.guard';
 import { Team } from './entities/team.entity';
 import { DeleteResult, UpdateResult } from 'typeorm';
 

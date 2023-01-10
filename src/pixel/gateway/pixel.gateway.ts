@@ -19,25 +19,31 @@ export class PixelGateway {
   @WebSocketServer()
   public server: Server;
 
-  constructor(private readonly pixelService: PixelService, private readonly userService: UserService) {}
+  constructor(
+    private readonly pixelService: PixelService,
+    private readonly userService: UserService,
+  ) {}
 
   @SubscribeMessage('createPixel')
   async handleCreatePixel(socket: Socket, payload: PixelDto) {
-    try{
+    try {
       const pixel = await this.pixelService.create(payload);
       const updateUserScore = await this.userService.updateScore(pixel.user.id);
+      console.log('updateUserScore => ', updateUserScore);
+
       const pixels = await this.pixelService.findAll();
       const lastUsers = await this.pixelService.findLastTwentyUser();
-
       const payloadResponse = {
         pixels: pixels,
-        lastUsers: lastUsers
-      }
-
+        lastUsers: lastUsers,
+      };
+      // console.log("payloadResponse => ", payloadResponse);
       await this.server.emit('responsePixel', payloadResponse);
-    }catch(error){
-      console.log("error => ", error.message);
-      this.server.emit('createdPixel', {error: new ForbiddenException(error.message)});
+    } catch (error) {
+      console.log('error => ', error.message);
+      this.server.emit('createdPixel', {
+        error: new ForbiddenException(error.message),
+      });
     }
   }
 }

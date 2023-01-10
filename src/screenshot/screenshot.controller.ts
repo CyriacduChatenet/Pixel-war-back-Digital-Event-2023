@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import { Controller, Get, Post, Body, Param } from '@nestjs/common';
 import { ScreenshotService } from './screenshot.service';
 import { ScreenshotDto } from './dto/screenshot.dto';
 import { Screenshot } from './entities/screenshot.entity';

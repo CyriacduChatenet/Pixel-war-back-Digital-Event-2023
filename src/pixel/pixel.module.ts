@@ -12,6 +12,6 @@ import { UserModule } from 'src/user/user.module';
     UserModule
   ],
   providers: [PixelGateway, PixelService],
-  controllers: [PixelController]
+  controllers: [PixelController],
 })
 export class PixelModule {}

@@ -6,9 +6,8 @@ import { Pixel } from './entities/pixel.entity';
 
 @Injectable()
 export class PixelService {
-
   constructor(
-    @InjectRepository(Pixel) private pixelRepository: Repository<Pixel>
+    @InjectRepository(Pixel) private pixelRepository: Repository<Pixel>,
   ) {}
 
   create(createPixelDto: PixelDto): Promise<Pixel> {
@@ -23,33 +22,33 @@ export class PixelService {
     return await this.pixelRepository.find({
       where: {
         x: x,
-        y: y
+        y: y,
       },
       relations: ['user'],
       order: {
-        createdAt: 'DESC'
-      }
-    })
+        createdAt: 'DESC',
+      },
+    });
   }
 
-  async findByUser(userId: string): Promise<Pixel[]>  {
+  async findByUser(userId: string): Promise<Pixel[]> {
     return await this.pixelRepository.find({
       where: {
         user: {
-          id: userId
-        }
-      }
-    })
+          id: userId,
+        },
+      },
+    });
   }
 
   async findLastTwentyUser(): Promise<Pixel[]> {
     return await this.pixelRepository.find({
       relations: ['user'],
       order: {
-        createdAt: 'DESC'
+        createdAt: 'DESC',
       },
       select: ['id', 'createdAt', 'user'],
-      take: 20
-    })
+      take: 20,
+    });
   }
 }

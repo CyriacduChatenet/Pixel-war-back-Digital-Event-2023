@@ -6,9 +6,8 @@ import { Game } from './entities/game.entity';
 
 @Injectable()
 export class GameService {
-
   constructor(
-    @InjectRepository(Game) private readonly gameRepository: Repository<Game>
+    @InjectRepository(Game) private readonly gameRepository: Repository<Game>,
   ) {}
 
   create(gameDto: GameDto): Promise<Game> {
@@ -17,8 +16,8 @@ export class GameService {
 
   findAll(): Promise<Game[]> {
     return this.gameRepository.find({
-      relations: ['screenshot']
-    })
+      relations: ['screenshot'],
+    });
   }
 
   findOne(id: string): Promise<Game> {
