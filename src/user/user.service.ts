@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Repository } from 'typeorm';
+import { DeleteResult, Repository, UpdateResult } from 'typeorm';
 
 import { SignupUserInputDTO } from './dto/signup-user.dto';
 import { User } from './entities/user.entity';
@@ -10,27 +10,27 @@ export class UserService {
   constructor(
     @InjectRepository(User) private userRepository: Repository<User>,
   ) {}
-  create(signupUserDto: SignupUserInputDTO) {
+  create(signupUserDto: SignupUserInputDTO): Promise<User> {
     return this.userRepository.save(signupUserDto);
   }
 
-  findAll() {
+  findAll(): Promise<User[]> {
     return this.userRepository.find({
       relations: ['pixel'],
     });
   }
 
-  findOne(id: string) {
+  findOne(id: string): Promise<User> {
     return this.userRepository.findOneBy({ id });
   }
 
-  findOneByUsername(username: string) {
+  findOneByUsername(username: string): Promise<User> {
     return this.userRepository.findOneBy({ username });
   }
 
-  async updateScore(id: string) {
+  async updateScore(id: string): Promise<User> {
     const bonus: number = +process.env.BONUS;
-    const score: number = 1 * bonus;
+    const score: number = 1 * bonus
 
     const user = await this.userRepository.findOneBy({ id });
 
@@ -39,11 +39,11 @@ export class UserService {
     return this.userRepository.save(user);
   }
 
-  update(id: string, signupUserDto: SignupUserInputDTO) {
+  update(id: string, signupUserDto: SignupUserInputDTO): Promise<UpdateResult> {
     return this.userRepository.update(id, signupUserDto);
   }
 
-  remove(id: string) {
+  remove(id: string): Promise<DeleteResult> {
     return this.userRepository.softDelete(id);
   }
 }

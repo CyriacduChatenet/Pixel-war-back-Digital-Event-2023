@@ -1,10 +1,12 @@
 import { Role } from 'src/auth/enums/roles.enum';
 import { Pixel } from 'src/pixel/entities/pixel.entity';
+import { Team } from 'src/team/entities/team.entity';
 import {
   Column,
   CreateDateColumn,
   DeleteDateColumn,
   Entity,
+  ManyToOne,
   OneToMany,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
@@ -31,8 +33,8 @@ export class User {
   })
   roles: Role[];
 
-  @Column()
-  team: string; // many to one
+  @ManyToOne(() => Team, (team) => team.users)
+  team: Team; // many to one
 
   @Column({ default: 0 })
   totalScore: number;

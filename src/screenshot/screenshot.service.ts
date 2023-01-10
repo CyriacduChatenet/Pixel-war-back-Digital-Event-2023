@@ -11,21 +11,21 @@ export class ScreenshotService {
     @InjectRepository(Screenshot) private screenshotRepository: Repository<Screenshot>
   ) {}
 
-  create(screenshotDto: ScreenshotDto) {
+  create(screenshotDto: ScreenshotDto): Promise<Screenshot> {
     return this.screenshotRepository.save(screenshotDto);
   }
 
-  findAll() {
+  findAll(): Promise<Screenshot[]> {
     return this.screenshotRepository.find({
       relations: ['game']
     })
   }
 
-  findOneById(id: string) {
+  findOneById(id: string): Promise<Screenshot> {
     return this.screenshotRepository.findOneBy({ id })
   }
 
-  findOneByGameId(gameId: string) {
+  findOneByGameId(gameId: string): Promise<Screenshot> {
     return this.screenshotRepository.findOne({
       where: {
         game: {
